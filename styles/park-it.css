@@ -49,3 +49,15 @@ button {
     margin: 15px auto;
     padding: 0px 10px;
 }
+
+#direction {
+    position: relative;
+    height: auto;
+    width: 90%;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
