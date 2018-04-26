@@ -13,7 +13,7 @@ body {
     z-index: 10;
 }
 
-#par {
+#park {
     float: left;
 }
 
@@ -31,7 +31,7 @@ button {
     position: absolute;
     top: 60px;
     left: 0px;
-    font-size: 14pt;
+    width: 100%;
 }
 
 #instructions {
@@ -50,7 +50,7 @@ button {
     padding: 0px 10px;
 }
 
-#direction {
+#directions {
     position: relative;
     height: auto;
     width: 90%;

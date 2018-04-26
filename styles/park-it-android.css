@@ -1,8 +1,8 @@
 body {
-    font-family: Roboto, SansSerif;
+    font-family: Roboto, sans-serif;
 }
 
-navbar{
+#navbar{
     background-color: #2196f3;
     color: white;
     box-shadow: 3px 3px gray;
