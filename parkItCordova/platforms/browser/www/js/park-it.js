@@ -1,27 +1,28 @@
-$().ready(init);
+$(init);
 
 var storage;
 
 function init() {
-    document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDivceReady, false);
     storage = window.localStorage;
 }
 
 
 function onDeviceReady() {
+
     //load the correct stylesheet
     var node = document.createElement("link");
     node.setAttribute('rel', 'stylesheet');
     node.setAttribute('type', 'text/css');
 
     if(cordova.platformid == 'ios') {
-        node.setAttribute('href', 'styles/park-it-ios.css');
+        node.setAttribute('href', 'css/park-it-ios.css');
 
         window.StatusBar.overlaysWebview(false);
         window.StatusBar.styleDefault();
     } else {
 
-        node.setAttribute('href', 'styles/park-it-android.css');
+        node.setAttribute('href', 'css/park-it-android.css');
         window.StatusBar.backgroundColorByHexString("#1565C0");
     }
 
@@ -58,7 +59,7 @@ function setParkingLocation() {
 
 var latitude;
 var longitude;
-function setParkingLocationSuccess(position) {
+function setParkingLocationSuccess() {
     latitude = position.coords.latitude;
     storage.setItem("parkedLatitude", latitude);
 
@@ -66,22 +67,21 @@ function setParkingLocationSuccess(position) {
     storage.setItem("ParkedLongitude", longitude);
 
     navigator.notification.alert("Parking location saved. (Lat: " + latitude + ", Long: " +
-                    longitude + ")");
+        longitude + ")");
 
     showParkingLocation();
 }
 
-function setParkingLocationError(error) {
+function setParkingLocationError() {
     navigator.notification.alert("Error code: " + error.code
-                            + "\nError Message: " + error.message);
+        + "\nError Message: " + error.message);
 }
 
 function showParkingLocation() {
     navigator.notification.alert("You are parked at Lat: "
-                            + storage.getItem("parkedLatitude")
-                            + ", Long: " + storage.getItem("ParkedLongitude"))
+        + storage.getItem("parkedLatitude")
+        + ", Long: " + storage.getItem("ParkedLongitude"))
 
     $("#directions").hide();
     $('#instructions').hide();
 }
-
